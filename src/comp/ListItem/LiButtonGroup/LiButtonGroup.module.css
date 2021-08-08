@@ -1,0 +1,9 @@
+.hidden {
+    display: none;
+}
+.visible {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 2rem;
+}
+
