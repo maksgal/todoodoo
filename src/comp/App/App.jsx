@@ -6,17 +6,10 @@ import { List } from "../List/List";
 export const App = () => {
   const [fetchedTodos, setFetchedTodos] = useState([]);
   const [showAllMode, setShowAllMode] = useState(false);
-  const toggleShowMode = (e) => {
-    e.preventDefault();
-    setShowAllMode(!showAllMode);
-  };
+  const toggleShowAllmode = () => setShowAllMode(!showAllMode);
   return (
     <div className={styles.App}>
-      <Header
-        showButtonHandler={toggleShowMode}
-        showAllMode={showAllMode}
-        fetchedTodos={fetchedTodos}
-      />
+      <Header toggleShowMode={toggleShowAllmode} showAllMode={showAllMode} />
       <List
         showAllMode={showAllMode}
         fetchedTodos={fetchedTodos}

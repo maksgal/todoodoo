@@ -17,9 +17,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (max-width: 340px) {
+@media (max-width: 400px) {
   html {
       font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 365px) {
+  html {
+      font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 340px) {
+  html {
+      font-size: 0.65rem;
   }
 }
 

@@ -1,19 +1,20 @@
-import { useState } from "react";
 import styles from "./EditingForm.module.css";
 import SaveIcon from "@material-ui/icons/Save";
 import CloseIcon from "@material-ui/icons/Close";
+import { firebaseUpdateTodo } from "../../../firebase_requests";
 import { Input } from "../../UI-components/Input/Input";
 import { ButtonElement } from "../../UI-components/ButtonElement/ButtonElement";
-import { db } from "../../../firebase_config";
-export const EditingForm = ({ doc, editModeOff }) => {
-  const [editedText, setEditedText] = useState("");
+
+export const EditingForm = ({
+  doc,
+  editedText,
+  setEditedText,
+  editModeOff,
+}) => {
   const editTodo = async (e) => {
     e.preventDefault();
-    console.log(editedText);
     if (editedText) {
-      await db.collection("todos").doc(doc.id).update({
-        todo: editedText,
-      });
+      await firebaseUpdateTodo(doc, editedText);
     }
     editModeOff();
   };
@@ -24,6 +25,7 @@ export const EditingForm = ({ doc, editModeOff }) => {
         todoText={editedText}
         placeholder={doc.data().todo}
         inputHandler={(e) => setEditedText(e.target.value)}
+        value={editedText}
       />
       <div className={styles.listItem__buttons}>
         <ButtonElement clickHandler={editTodo} buttonText={<SaveIcon />} />

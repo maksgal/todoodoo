@@ -1,14 +1,15 @@
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCQWRlq3Z9eXQWCpfpW0qWZzoqoUHFwFbM",
+  apiKey: process.env.REACT_APP_API_KEY,
   authDomain: "todoodoo-73bfa.firebaseapp.com",
   databaseURL:
     "https://todoodoo-73bfa-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "todoodoo-73bfa",
   storageBucket: "todoodoo-73bfa.appspot.com",
-  messagingSenderId: "227398699946",
-  appId: "1:227398699946:web:b12bb9c80c3a718018b9d3",
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
   measurementId: "G-22MLVX0KBE",
 };
 

@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 import { Input } from "../UI-components/Input/Input";
 import { HeaderButtonGroup } from "./HeaderButtonGroup/HeaderButtonGroup";
 
-export const Header = ({ showButtonHandler, showAllMode, fetchedTodos }) => {
+export const Header = ({ toggleShowMode, showAllMode }) => {
   const [todoText, setTodoText] = useState("");
 
   const headerInputHandler = (e) => {
@@ -21,9 +21,8 @@ export const Header = ({ showButtonHandler, showAllMode, fetchedTodos }) => {
       <HeaderButtonGroup
         setTodoText={setTodoText}
         todoText={todoText}
-        showButtonHandler={showButtonHandler}
+        toggleShowMode={toggleShowMode}
         showAllMode={showAllMode}
-        fetchedTodos={fetchedTodos}
       />
     </form>
   );

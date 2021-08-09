@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "./List.module.css";
 import { ListItem } from "../ListItem/ListItem";
-import { db } from "../../firebase_config";
+import { firebaseUpdater } from "../../firebase_requests";
 
 export const List = ({ showAllMode, fetchedTodos, setFetchedTodos }) => {
   const createListItems = (arr) => {
@@ -9,25 +9,22 @@ export const List = ({ showAllMode, fetchedTodos, setFetchedTodos }) => {
       return <ListItem doc={doc} key={doc.id} />;
     });
   };
-  const fetchAndShowTodos = () => {
-    db.collection("todos")
-      .orderBy("added")
-      .onSnapshot((querySnapshot) => {
-        if (showAllMode) {
-          setFetchedTodos(createListItems(querySnapshot.docs));
-        } else {
-          setFetchedTodos(
-            createListItems(
-              querySnapshot.docs.filter((doc) => doc.data().isActive)
-            )
-          );
-        }
-      });
-  };
-  useEffect(() => {
-    fetchAndShowTodos();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [showAllMode]);
 
-  return <ul className={styles.list}>{fetchedTodos}</ul>;
+  useEffect(() => {
+    const fetchTodos = () => {
+      const filterFetchedTodos = (fetchedArr) => {
+        if (showAllMode) {
+          setFetchedTodos(fetchedArr);
+        } else {
+          setFetchedTodos(fetchedArr.filter((doc) => doc.data().isActive));
+        }
+      };
+      firebaseUpdater((querySnapshot) => {
+        filterFetchedTodos(querySnapshot.docs);
+      });
+    };
+    fetchTodos();
+  }, [setFetchedTodos, showAllMode]);
+
+  return <ul className={styles.list}>{createListItems(fetchedTodos)}</ul>;
 };

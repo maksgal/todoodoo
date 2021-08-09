@@ -2,16 +2,15 @@ import AddIcon from "@material-ui/icons/Add";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import styles from "./HeaderButtonGroup.module.css";
-import firebase from "firebase";
+import firebase from "firebase/app";
 import { db } from "../../../firebase_config";
 import { ButtonElement } from "../../UI-components/ButtonElement/ButtonElement";
 
 export const HeaderButtonGroup = ({
   todoText,
   setTodoText,
-  showButtonHandler,
+  toggleShowMode,
   showAllMode,
-  fetchedTodos,
 }) => {
   const addTodo = (e) => {
     e.preventDefault();
@@ -24,6 +23,10 @@ export const HeaderButtonGroup = ({
       });
     }
     setTodoText("");
+  };
+  const showButtonHandler = (e) => {
+    e.preventDefault();
+    toggleShowMode();
   };
   return (
     <div className={styles.buttonGroup}>

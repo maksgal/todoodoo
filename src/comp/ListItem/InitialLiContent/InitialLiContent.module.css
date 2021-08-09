@@ -1,5 +1,5 @@
 .liText{
     cursor: pointer;
-    word-wrap: break-word;
-    width: 45vw;
+    word-wrap:break-word;
+    max-width: 42vw;
  }

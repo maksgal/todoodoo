@@ -5,30 +5,32 @@ import { EditingForm } from "./EditingForm/EditingForm";
 import { LiButtonGroup } from "./LiButtonGroup/LiButtonGroup";
 export const ListItem = ({ doc }) => {
   const [editMode, setEditMode] = useState(false);
+  const [editedText, setEditedText] = useState(doc.data().todo);
   const enterEditMode = () => {
     setEditMode(true);
   };
   const [liContent, setLiContent] = useState(
     <InitialLiContent doc={doc} clickHandler={enterEditMode} />
   );
-  const liContentHandler = () => {
-    editMode
-      ? setLiContent(
-          <EditingForm
-            doc={doc}
-            editModeOff={(e) => {
-              setEditMode(false);
-            }}
-          />
-        )
-      : setLiContent(
-          <InitialLiContent doc={doc} clickHandler={enterEditMode} />
-        );
-  };
   useEffect(() => {
+    const liContentHandler = () => {
+      editMode
+        ? setLiContent(
+            <EditingForm
+              doc={doc}
+              editedText={editedText}
+              setEditedText={setEditedText}
+              editModeOff={(e) => {
+                setEditMode(false);
+              }}
+            />
+          )
+        : setLiContent(
+            <InitialLiContent doc={doc} clickHandler={enterEditMode} />
+          );
+    };
     return liContentHandler();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [editMode]);
+  }, [doc, editMode, editedText]);
 
   const liRef = useRef();
   useEffect(() => {
