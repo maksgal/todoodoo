@@ -13,23 +13,25 @@ export const App = () => {
 
   function getTime() {
     const hourNow = new Date().getHours();
-    return hourNow > 19 || hourNow < 7 ? true : false;
+    return hourNow > 17 || hourNow < 7 ? true : false;
   }
 
   return (
     <div className={darkTheme ? styles.App_dark : styles.App_bright}>
       <div className={styles.container}>
-        <Header
-          darkTheme={darkTheme}
-          toggleShowMode={toggleShowAllmode}
-          showAllMode={showAllMode}
-        />
-        <List
-          showAllMode={showAllMode}
-          fetchedTodos={fetchedTodos}
-          setFetchedTodos={setFetchedTodos}
-          darkTheme={darkTheme}
-        />
+        <div className={styles.top}>
+          <Header
+            darkTheme={darkTheme}
+            toggleShowMode={toggleShowAllmode}
+            showAllMode={showAllMode}
+          />
+          <List
+            showAllMode={showAllMode}
+            fetchedTodos={fetchedTodos}
+            setFetchedTodos={setFetchedTodos}
+            darkTheme={darkTheme}
+          />
+        </div>
         <Footer darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
       </div>
     </div>

@@ -1,5 +1,6 @@
 .list{
     display: flex;
     flex-direction: column;
-    margin-bottom: 5rem;
+    margin: 0 auto 3rem;
+    max-width: 1024px;
 }

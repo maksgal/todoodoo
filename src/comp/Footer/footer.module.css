@@ -5,10 +5,8 @@
     align-items: center;
     color: #fff;
     margin: 0;
+    left: 0;
     padding: 0.2rem 2rem;
-    position: absolute;
-    left:0;
-    bottom: 0;
     width: 100vw;
     background-color: #3f51b5;
 }
@@ -19,10 +17,8 @@
     align-items: center;
     color: #dad5c3;
     margin: 0;
+    left: 0;
     padding: 0.2rem 2rem;
-    position: absolute;
-    left:0;
-    bottom: 0;
     width: 100vw;
     background-color: #59405C;
 }
