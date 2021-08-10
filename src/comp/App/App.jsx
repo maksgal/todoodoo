@@ -18,22 +18,20 @@ export const App = () => {
 
   return (
     <div className={darkTheme ? styles.App_dark : styles.App_bright}>
-      <div className={styles.container}>
-        <div className={styles.top}>
-          <Header
-            darkTheme={darkTheme}
-            toggleShowMode={toggleShowAllmode}
-            showAllMode={showAllMode}
-          />
-          <List
-            showAllMode={showAllMode}
-            fetchedTodos={fetchedTodos}
-            setFetchedTodos={setFetchedTodos}
-            darkTheme={darkTheme}
-          />
-        </div>
-        <Footer darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
+      <div className={styles.top}>
+        <Header
+          darkTheme={darkTheme}
+          toggleShowMode={toggleShowAllmode}
+          showAllMode={showAllMode}
+        />
+        <List
+          showAllMode={showAllMode}
+          fetchedTodos={fetchedTodos}
+          setFetchedTodos={setFetchedTodos}
+          darkTheme={darkTheme}
+        />
       </div>
+      <Footer darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
     </div>
   );
 };

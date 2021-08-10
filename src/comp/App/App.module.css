@@ -1,10 +1,13 @@
 .App_bright{
-    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     position: relative;
+    padding-top: 2rem;
+    min-height: 100vh;
+    min-height: calc(100vh - var(--browser-address-bar, 0px));
+    margin: 0 auto;
+    width: 100%;
 }
 
 .App_dark{
@@ -14,17 +17,15 @@
     position: relative;
     background-color: #464255;
     color: #dad5c3 !important;
+    padding-top: 2rem;
+    min-height: 100vh;
+    min-height: calc(100vh - var(--browser-address-bar, 0px));
+    margin: 0 auto;
+    width: 100%;
     
 }
 
 .container{
-    padding-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
-  min-height: calc(100vh - var(--browser-address-bar, 0px));
-    margin: 0 auto;
-    width: 100%;
+    
  }
 .top{padding: 0 2rem;}

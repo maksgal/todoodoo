@@ -1,5 +1,5 @@
 *{
-  box-sizing: border-box !important;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -16,6 +16,8 @@ body {
   font-weight: 600;
 
 }
+
+
 
 @media (max-width: 400px) {
   html {

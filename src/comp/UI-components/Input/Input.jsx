@@ -17,6 +17,7 @@ export const Input = ({
       id="standard-basic"
       label={label}
       onChange={inputHandler}
+      placeholder=""
       InputProps={{ disableUnderline: true }}
       value={value}
     />

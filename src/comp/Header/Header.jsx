@@ -15,7 +15,7 @@ export const Header = ({ toggleShowMode, showAllMode, darkTheme }) => {
       <Input
         darkTheme={darkTheme}
         inputHandler={headerInputHandler}
-        label="Add todo"
+        label="Add todo here"
         value={todoText}
       />
       <HeaderButtonGroup
