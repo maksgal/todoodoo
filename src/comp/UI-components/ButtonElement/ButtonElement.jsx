@@ -1,13 +1,19 @@
 import { Button } from "@material-ui/core";
-const styles = require("./ButtonElement.module.css");
-export const ButtonElement = ({ color, clickHandler, buttonText }) => {
+//Easier to handle the dark mode with normal import
+import "./ButtonElement.css";
+export const ButtonElement = ({
+  color,
+  clickHandler,
+  buttonText,
+  darkColorClass,
+}) => {
   return (
     <Button
-      className={styles.button}
       type="submit"
       onClick={clickHandler}
       variant="contained"
       color={color}
+      className={darkColorClass}
       size="small"
     >
       {buttonText}

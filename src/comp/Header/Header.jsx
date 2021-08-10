@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 import { Input } from "../UI-components/Input/Input";
 import { HeaderButtonGroup } from "./HeaderButtonGroup/HeaderButtonGroup";
 
-export const Header = ({ toggleShowMode, showAllMode }) => {
+export const Header = ({ toggleShowMode, showAllMode, darkTheme }) => {
   const [todoText, setTodoText] = useState("");
 
   const headerInputHandler = (e) => {
@@ -13,12 +13,13 @@ export const Header = ({ toggleShowMode, showAllMode }) => {
   return (
     <form className={styles.form}>
       <Input
+        darkTheme={darkTheme}
         inputHandler={headerInputHandler}
-        todoText={todoText}
         label="Add todo"
         value={todoText}
       />
       <HeaderButtonGroup
+        darkTheme={darkTheme}
         setTodoText={setTodoText}
         todoText={todoText}
         toggleShowMode={toggleShowMode}

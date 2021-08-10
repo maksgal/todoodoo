@@ -3,10 +3,15 @@ import styles from "./List.module.css";
 import { ListItem } from "../ListItem/ListItem";
 import { firebaseUpdater } from "../../firebase_requests";
 
-export const List = ({ showAllMode, fetchedTodos, setFetchedTodos }) => {
+export const List = ({
+  showAllMode,
+  fetchedTodos,
+  setFetchedTodos,
+  darkTheme,
+}) => {
   const createListItems = (arr) => {
     return arr.map((doc) => {
-      return <ListItem doc={doc} key={doc.id} />;
+      return <ListItem doc={doc} key={doc.id} darkTheme={darkTheme} />;
     });
   };
 

@@ -10,6 +10,7 @@ export const EditingForm = ({
   editedText,
   setEditedText,
   editModeOff,
+  darkTheme,
 }) => {
   const editTodo = async (e) => {
     e.preventDefault();
@@ -17,6 +18,7 @@ export const EditingForm = ({
       await firebaseUpdateTodo(doc, editedText);
     }
     editModeOff();
+    setEditedText("");
   };
   return (
     <form className={styles.editingForm}>
@@ -26,6 +28,7 @@ export const EditingForm = ({
         placeholder={doc.data().todo}
         inputHandler={(e) => setEditedText(e.target.value)}
         value={editedText}
+        darkTheme={darkTheme}
       />
       <div className={styles.listItem__buttons}>
         <ButtonElement clickHandler={editTodo} buttonText={<SaveIcon />} />

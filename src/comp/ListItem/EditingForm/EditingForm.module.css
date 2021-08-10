@@ -3,6 +3,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: baseline;
+    transition: all 0.5s;
 }
 .listItem__buttons{
     margin-left: 1rem;

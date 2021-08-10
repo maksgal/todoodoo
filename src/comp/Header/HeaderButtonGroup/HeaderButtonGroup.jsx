@@ -11,6 +11,7 @@ export const HeaderButtonGroup = ({
   setTodoText,
   toggleShowMode,
   showAllMode,
+  darkTheme,
 }) => {
   const addTodo = (e) => {
     e.preventDefault();
@@ -31,11 +32,13 @@ export const HeaderButtonGroup = ({
   return (
     <div className={styles.buttonGroup}>
       <ButtonElement
+        darkColorClass={darkTheme ? "button_dark_primary button" : "button"}
         clickHandler={addTodo}
         color="primary"
         buttonText={<AddIcon />}
       />
       <ButtonElement
+        darkColorClass={darkTheme ? "button_dark_secondary button" : "button"}
         clickHandler={showButtonHandler}
         color="primary"
         buttonText={showAllMode ? <VisibilityOffIcon /> : <VisibilityIcon />}

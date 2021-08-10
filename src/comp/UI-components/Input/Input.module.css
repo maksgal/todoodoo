@@ -1,0 +1,11 @@
+.input{
+    border-bottom: 1px solid #949393 !important;
+  }
+Input{
+    color: #949393 !important;
+    font-weight: 700 !important;
+  }
+label{
+    color: #949393 !important;
+    font-weight: 700 !important;
+}

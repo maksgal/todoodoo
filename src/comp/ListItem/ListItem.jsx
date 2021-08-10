@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { InitialLiContent } from "./InitialLiContent/InitialLiContent";
 import { EditingForm } from "./EditingForm/EditingForm";
 import { LiButtonGroup } from "./LiButtonGroup/LiButtonGroup";
-export const ListItem = ({ doc }) => {
+export const ListItem = ({ doc, darkTheme }) => {
   const [editMode, setEditMode] = useState(false);
   const [editedText, setEditedText] = useState(doc.data().todo);
   const enterEditMode = () => {
@@ -20,6 +20,7 @@ export const ListItem = ({ doc }) => {
               doc={doc}
               editedText={editedText}
               setEditedText={setEditedText}
+              darkTheme={darkTheme}
               editModeOff={(e) => {
                 setEditMode(false);
               }}
@@ -30,7 +31,7 @@ export const ListItem = ({ doc }) => {
           );
     };
     return liContentHandler();
-  }, [doc, editMode, editedText]);
+  }, [darkTheme, doc, editMode, editedText]);
 
   const liRef = useRef();
   useEffect(() => {
@@ -46,7 +47,7 @@ export const ListItem = ({ doc }) => {
   return (
     <li className={styles.li} ref={liRef}>
       {liContent}
-      <LiButtonGroup editMode={editMode} doc={doc} />
+      <LiButtonGroup editMode={editMode} doc={doc} darkTheme={darkTheme} />
     </li>
   );
 };

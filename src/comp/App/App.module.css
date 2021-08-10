@@ -1,2 +1,16 @@
-.App{
+.App_bright{
+    height: 100vh;
+}
+
+.App_dark{
+    height: 100vh;
+    background-color: #464255;
+    color: #dad5c3 !important;
+    
+}
+
+.container{
+    margin: 0 auto;
+    padding: 2rem;
+    max-width: 1024px;
 }

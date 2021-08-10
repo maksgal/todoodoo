@@ -4,3 +4,10 @@
     display: flex;
     align-items: center;
 }
+
+#standard-basic-label{
+    color:aliceblue !important;
+    background-color: aliceblue !important;
+}
+
+
