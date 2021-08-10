@@ -10,7 +10,18 @@
     display: flex;
 }
 
-@media(max-width:520px){
+.button{
+    margin: 0.1rem !important;
+  }
+  
+  .button_dark_primary{
+    background-color: rgb(72, 100, 72) !important;
+  }
+  .button_dark_secondary{
+    background-color: #6a476d !important;
+  }
+
+  @media(max-width:520px){
     .editingForm{
         width: 100%;
     }
