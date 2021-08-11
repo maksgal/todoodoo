@@ -11,7 +11,7 @@ export const firebaseUpdateTodo = (todoToUpdate, editedText) => {
   });
 };
 
-export const fetchFromDB = (displayResults) => {
+export const displayOnUpdate = (displayResults) => {
   onUpdate((querySnapshot) => {
     displayResults(querySnapshot.docs);
   });
