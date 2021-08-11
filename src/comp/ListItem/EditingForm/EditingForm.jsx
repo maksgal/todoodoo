@@ -33,13 +33,13 @@ export const EditingForm = ({
       <div className={styles.listItem__buttons}>
         <ButtonElement
           darkColorClass={darkTheme ? "button_dark_secondary button" : "button"}
-          color="primary"
+          color="secondary"
           clickHandler={editTodo}
           buttonText={<SaveIcon />}
         />
         <ButtonElement
-          darkColorClass={darkTheme ? "button_dark_secondary button" : "button"}
-          color="secondary"
+          darkColorClass={darkTheme ? "button_dark_primary button" : "button"}
+          color="primary"
           clickHandler={editModeOff}
           buttonText={<CloseIcon />}
         />

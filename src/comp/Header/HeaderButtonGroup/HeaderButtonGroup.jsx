@@ -2,8 +2,7 @@ import AddIcon from "@material-ui/icons/Add";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import styles from "./HeaderButtonGroup.module.css";
-import firebase from "firebase/app";
-import { db } from "../../../firebase_config";
+import { addToDB } from "../../../firebase_requests";
 import { ButtonElement } from "../../UI-components/ButtonElement/ButtonElement";
 
 export const HeaderButtonGroup = ({
@@ -17,11 +16,7 @@ export const HeaderButtonGroup = ({
     e.preventDefault();
     if (todoText) {
       console.log(todoText);
-      db.collection("todos").add({
-        isActive: true,
-        todo: todoText,
-        added: firebase.firestore.FieldValue.serverTimestamp(),
-      });
+      addToDB(todoText);
     }
     setTodoText("");
   };
